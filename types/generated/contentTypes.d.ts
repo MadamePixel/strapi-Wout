@@ -400,6 +400,37 @@ export interface ApiPalmarePalmare extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTournamentTournament extends Struct.CollectionTypeSchema {
+  collectionName: 'tournaments';
+  info: {
+    description: '';
+    displayName: 'Tournaments';
+    pluralName: 'tournaments';
+    singularName: 'tournament';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Competition: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    End: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tournament.tournament'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Start: Schema.Attribute.Date;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -910,6 +941,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::palmare.palmare': ApiPalmarePalmare;
+      'api::tournament.tournament': ApiTournamentTournament;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
