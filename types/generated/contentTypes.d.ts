@@ -430,6 +430,37 @@ export interface ApiPalmarePalmare extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTextText extends Struct.CollectionTypeSchema {
+  collectionName: 'texts';
+  info: {
+    description: '';
+    displayName: 'Text';
+    pluralName: 'texts';
+    singularName: 'text';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::text.text'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Text_block1: Schema.Attribute.Text;
+    Text_block2: Schema.Attribute.Text;
+    Text_block3: Schema.Attribute.Text;
+    Title1: Schema.Attribute.String;
+    Title2: Schema.Attribute.String;
+    Title3: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTournamentTournament extends Struct.CollectionTypeSchema {
   collectionName: 'tournaments';
   info: {
@@ -972,6 +1003,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::image.image': ApiImageImage;
       'api::palmare.palmare': ApiPalmarePalmare;
+      'api::text.text': ApiTextText;
       'api::tournament.tournament': ApiTournamentTournament;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
