@@ -17,6 +17,9 @@
     },
     "Text_block": {
       "type": "text"
+    },
+    "Position": {
+      "type": "integer"
     }
   }
 }
