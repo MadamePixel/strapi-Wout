@@ -12,22 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title1": {
+    "Title": {
       "type": "string"
     },
-    "Text_block1": {
-      "type": "text"
-    },
-    "Title2": {
-      "type": "string"
-    },
-    "Text_block2": {
-      "type": "text"
-    },
-    "Title3": {
-      "type": "string"
-    },
-    "Text_block3": {
+    "Text_block": {
       "type": "text"
     }
   }

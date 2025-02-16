@@ -449,12 +449,8 @@ export interface ApiTextText extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::text.text'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Text_block1: Schema.Attribute.Text;
-    Text_block2: Schema.Attribute.Text;
-    Text_block3: Schema.Attribute.Text;
-    Title1: Schema.Attribute.String;
-    Title2: Schema.Attribute.String;
-    Title3: Schema.Attribute.String;
+    Text_block: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
