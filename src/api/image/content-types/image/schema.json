@@ -25,6 +25,9 @@
     },
     "Title": {
       "type": "string"
+    },
+    "Test": {
+      "type": "string"
     }
   }
 }
