@@ -392,6 +392,7 @@ export interface ApiImageImage extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::image.image'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Test: Schema.Attribute.String;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
