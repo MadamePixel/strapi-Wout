@@ -462,6 +462,35 @@ export interface ApiPalmarePalmare extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
+  collectionName: 'sponsors';
+  info: {
+    displayName: 'Sponsors';
+    pluralName: 'sponsors';
+    singularName: 'sponsor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sponsor.sponsor'
+    > &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTextText extends Struct.CollectionTypeSchema {
   collectionName: 'texts';
   info: {
@@ -1033,6 +1062,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::image.image': ApiImageImage;
       'api::palmare.palmare': ApiPalmarePalmare;
+      'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::text.text': ApiTextText;
       'api::tournament.tournament': ApiTournamentTournament;
       'plugin::content-releases.release': PluginContentReleasesRelease;
